@@ -1,4 +1,4 @@
-# 🔐 Purecore JWTfy
+# 🔐 @purecore/one-jwt-4-all
 
 <img src="https://i.imgur.com/39I2vIJ.png" align="center" />
 
