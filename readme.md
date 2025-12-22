@@ -427,6 +427,57 @@ await agentA.sendMessage('agent-beta', 'Mensagem segura!');
 
 📖 **Documentação**: [examples/MTLS_AGENTS.md](examples/MTLS_AGENTS.md)
 
+### 3. Signal Protocol E2EE (End-to-End Encryption)
+
+Implementação do **Double Ratchet Algorithm** do Signal Protocol para criptografia end-to-end entre agentes com Perfect Forward Secrecy.
+
+**Características:**
+- 🔐 **X3DH**: Extended Triple Diffie-Hellman para key agreement
+- 🔄 **Double Ratchet**: Rotação contínua de chaves por mensagem
+- 🛡️ **Perfect Forward Secrecy (PFS)**: Comprometimento não afeta passado
+- 🔓 **Post-Compromise Security (PCS)**: Recuperação após comprometimento
+- 🤫 **Deniability**: Negabilidade criptográfica
+
+**Exemplo Rápido:**
+```typescript
+import { SignalE2EEAgent, TokenAuthority } from './examples/signal-e2ee-agents';
+
+const tokenAuthority = new TokenAuthority();
+
+const alice = new SignalE2EEAgent('alice', tokenAuthority);
+const bob = new SignalE2EEAgent('bob', tokenAuthority);
+
+await alice.initialize();
+await bob.initialize();
+
+// Trocar bundles públicos
+alice.registerPeerBundle('bob', bob.getPublicKeyBundle());
+bob.registerPeerBundle('alice', alice.getPublicKeyBundle());
+
+// Estabelecer sessão E2EE
+await alice.establishSession('bob');
+await bob.acceptSession('alice', alice.getIdentityPublicKey(), alice.getPublicKeyBundle().signedPreKey);
+
+// Enviar mensagem encriptada
+const msg = await alice.sendMessage('bob', 'Hello, secure world!');
+const plaintext = await bob.receiveMessage(msg);
+// plaintext = "Hello, secure world!"
+```
+
+📖 **Documentação**: [examples/SIGNAL_E2EE.md](examples/SIGNAL_E2EE.md)
+
+### 4. Combinando Signal E2EE + mTLS (Defesa em Profundidade)
+
+Para máxima segurança, combine ambos os protocolos:
+
+| Camada | Protocolo | Proteção |
+|--------|-----------|----------|
+| **Transporte** | mTLS | Anti-MITM, autenticação mútua |
+| **Aplicação** | Signal E2EE | Forward secrecy, conteúdo encriptado |
+| **Contexto** | JWT | Claims, autorização, expiração |
+
+📖 **Documentação Completa**: [examples/SIGNAL_E2EE.md#usando-ambos-em-conjunto](examples/SIGNAL_E2EE.md#usando-ambos-em-conjunto)
+
 ## 🛠️ Requisitos
 
 - **Node.js**: >= 18.0.0 (suporte nativo a Ed25519)
