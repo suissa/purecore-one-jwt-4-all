@@ -1,6 +1,8 @@
 # 🔐 @purecore/one-jwt-4-all
 
-<img src="https://i.imgur.com/39I2vIJ.png" align="center" />
+<p align="center">
+<img src="./logo-neon.png" style="width: 100%; max-width: 1200px; display: block; margin: 0 auto;" />
+</p>
 
 > **A Biblioteca one-jwt-4-all com Zero Dependências**
 
