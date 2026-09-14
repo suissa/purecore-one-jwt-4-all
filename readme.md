@@ -22,9 +22,9 @@ Enquanto outras bibliotecas suportam centenas de combinações de algoritmos (mu
 
 > **"A complexidade é a inimiga da segurança."**
 
-## 📊 Comparativo: jose vs Purecore JWTfy
+## 📊 Comparativo: jose vs Purecore One JWT 4 ALL
 
-| Funcionalidade        | Biblioteca jose (Genérica)               | Purecore JWTfy (Opinativa)                  |
+| Funcionalidade        | Biblioteca jose (Genérica)               | Purecore One JWT 4 ALL (Opinativa)                  |
 | --------------------- | ---------------------------------------- | ------------------------------------------- |
 | **Filosofia**         | Suportar tudo (Legado & Novo)            | Suportar apenas o Melhor (State-of-the-Art) |
 | **JWS Signing Algs**  | HS256, RS256, ES256, PS256, EdDSA...     | **EdDSA (Ed25519) Apenas**                  |
