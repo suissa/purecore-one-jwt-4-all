@@ -1,23 +1,39 @@
 {
   "name": "@purecore/one-jwt-4-all",
   "version": "1.3.0",
-  "main": "index.js",
-  "dependencies": {
-    "@types/node": "^25.0.3",
-    "undici-types": "^7.16.0"
+  "description": "One JWT FTW is a library for validating and verifying JSON Web Tokens (JWT) using always the newest and more secure native cryptographic algorithm.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "LICENSE-COGFULNESS",
+    "readme.md"
+  ],
+  "scripts": {
+    "build": "rm -rf dist && bun build src/index.ts --outdir dist --target node && tsc --emitDeclarationOnly",
+    "test": "bun test",
+    "prepublishOnly": "bun run build && bun test"
   },
   "publishConfig": {
     "access": "public"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "bun build src/index.ts --outdir dist --target node"
-  },
-  "keywords": [],
-  "author": "suissAI",
+  "keywords": [
+    "jwt",
+    "eddsa",
+    "ed25519",
+    "jose",
+    "purecore",
+    "authentication",
+    "zero-dependency",
+    "security"
+  ],
+  "author": "suissa",
   "license": "CEL",
-  "description": "One JWT FTW is a library for validating and verifying JSON Web Tokens (JWT) using always the newest and more secure native cryptographic algorithm.",
   "engines": {
     "node": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.3",
+    "undici-types": "^7.16.0"
   }
 }

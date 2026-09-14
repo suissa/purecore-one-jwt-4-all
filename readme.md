@@ -31,7 +31,7 @@ Enquanto outras bibliotecas suportam centenas de combinações de algoritmos (mu
 | **JWE Encryption**    | RSA-OAEP, A128CBC-HS256, A256GCM...      | **X25519 + A256GCM** (Roadmap)              |
 | **JWS Serialization** | Compact, Flattened, General              | Compact (Core)                              |
 | **Key Management**    | JWK, JWKS (Local/Remote), PEM, X.509     | PEM & JWK (Simples)                         |
-| **Runtime**           | Universal (Browser, Node, Deno, Workers) | **Node.js Nativo** (Foco em Performance)    |
+| **Runtime**           | Universal (Browser, Node, Deno, Workers) | **Node.js/Bun** (Foco em Performance)    |
 | **Dependências**      | Múltiplas                                | **Zero (0)**                                |
 
 ## 🚀 Instalação
